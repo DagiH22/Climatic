@@ -1,0 +1,26 @@
+.todaySummary{
+    width: 40%;
+    height: 66vh;
+    display: flex;
+    border: 2px solid #001b5a;
+    border-radius: 25px;
+    margin-left: 25px;
+}
+.mainImg{
+    height: 100%;
+    width: 50%;
+}
+.summaryInfo{
+
+}
+.mainTemp{
+    height: 50%;
+    font-size: 5em;
+    font-weight: bold;
+}
+.description{
+    height: 25%;
+}
+.location{
+    height: 25%;
+}

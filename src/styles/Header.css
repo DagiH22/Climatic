@@ -3,14 +3,38 @@ header{
     position: relative;
     font-size: 14px;
     display: flex;
-    padding: 20px;
+    padding: 10px;
     justify-content: space-around;
-    height: 10vh;
+    align-items: center;
+    height: 7vh;
     /* border-bottom: solid red; */
+}
+.search{
+    width: 25%;
+    justify-self: center;
+}
+input{
+    height: 2em;
+    width: 100%;
+    font-size: 1.2em;
+    border: none;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 999px;
+    background-color: hsl(222, 100%, 11%);
+    color: white;
+}
+input:focus{
+    background-color: hsl(222, 100%, 13%);
+    outline: 2px solid #001b5a;
+    border: 2px solid #001b5a;
+}
+input::placeholder{
+    color: rgb(162, 162, 162)
 }
 
 .unit,.mode{
-    border: solid 1px gray;
+    border: solid 1px #001b5a;
     border-radius: 999px;
     width: fit-content;
     position: relative;
@@ -24,6 +48,7 @@ button{
     color: white;
     border: none;
 }
+
   /* Shared styles for both buttons */
 /* .option {
     flex: 1;
