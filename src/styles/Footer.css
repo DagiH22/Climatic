@@ -1,0 +1,11 @@
+footer{
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-start; */
+    font-size: .7em;
+    background-color: blue;
+}

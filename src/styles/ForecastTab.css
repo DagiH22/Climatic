@@ -1,0 +1,11 @@
+.forecastTab{
+    height: 66vh;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+.fiveDaycard{
+    width: 10em;
+    height: 15em;
+    border: 1px solid red;
+}
