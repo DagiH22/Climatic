@@ -1,6 +1,6 @@
 import '../styles/DailyForecastCard.css'
 
-function DailyForecastCard() {
+function DailyForecastCard({apiData}) {
   return (
     <section className='dForcastCardContainer'>DailyForecastCard</section>
   )

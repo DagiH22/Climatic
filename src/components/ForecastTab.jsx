@@ -1,6 +1,6 @@
 import '../styles/ForecastTab.css'
 
-function ForecastTab() {
+function ForecastTab({apiData}) {
   return (
     <section className='forecastTab'>
         <div className="fiveDaycard">forecast 1</div>

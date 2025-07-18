@@ -12,6 +12,7 @@ header{
 .search{
     width: 25%;
     justify-self: center;
+    display: flex;
 }
 input{
     height: 2em;
@@ -40,13 +41,25 @@ input::placeholder{
     position: relative;
     height: fit-content;
 } 
-button{
+.toggle{
     display: inline-block;
     padding: 5px;
     margin: 8px;
     background:none;
     color: white;
     border: none;
+}
+.searchBtn{
+    height: 1.7em;
+    border: none;
+    cursor: pointer;
+    background: inherit;
+    margin-left: 5px;
+    align-self: center;
+}
+.searchBtn img{
+    height: 2em;
+    width: auto;
 }
 
   /* Shared styles for both buttons */
