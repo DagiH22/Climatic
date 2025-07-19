@@ -1,6 +1,6 @@
 .todaySummary{
     width: 40%;
-    height: 66vh;
+    height: 49vh;
     display: flex;
     border: 2px solid #001b5a;
     border-radius: 25px;
@@ -11,16 +11,19 @@
     width: 50%;
 }
 .summaryInfo{
-
+    background-color: blue;
 }
 .mainTemp{
-    height: 50%;
-    font-size: 5em;
+    font-size: 4em;
     font-weight: bold;
+    margin-top: 1.5em;
+}
+.weather{
+    font-size: 2em;
 }
 .description{
-    height: 25%;
+    font-size: 1em;
 }
 .location{
-    height: 25%;
+    font-size: 1em;
 }

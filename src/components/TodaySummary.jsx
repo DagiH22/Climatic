@@ -1,15 +1,18 @@
 import '../styles/TodaySummary.css'
 
-function TodaySummary() {
+function TodaySummary({apiData}) {
+  console.log(apiData.weather.main)
+  console.log(apiData.weather.description)
   return (
     <div className='todaySummary'>
         <div className='mainImg'>
         
         </div>
         <div className='summaryInfo'>
-            <div className='mainTemp'>21°C </div>
-            <div className="description">Rain</div>
-            <div className="location">Location</div>
+            <div className='mainTemp'>{apiData.main.temp}°C </div>
+            <div className='weather'>{apiData.weather[0].main}</div>
+            <div className="description">{apiData.weather[0].description}</div>
+            <div className="location">{apiData.name}</div>
         </div>
     </div>
   )

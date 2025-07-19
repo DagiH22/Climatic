@@ -1,13 +1,16 @@
+import axios from 'axios'
 const CURRENT_API_KEY = import.meta.env.VITE_CURRENT_WEATHER_API_KEY
 
-const CURRENT_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${CURRENT_API_KEY}`
-const CURRENT_BY_CITY_URL =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${CURRENT_API_KEY}`
+let lat
+let lon
 
-let cityName
-function dailypi(city){
-    cityName = city
-    axios.get(CURRENT_BY_CITY_URL)
-    .then(res=> {return res.data})
-    .catch(err => {throw new Error(err.message)})
+async function dailyApi(city){
+    const CURRENT_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${CURRENT_API_KEY}&units=metric`
+    const CURRENT_BY_CITY_URL =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${CURRENT_API_KEY}&units=metric`
+    try{
+        const res = await axios.get(CURRENT_BY_CITY_URL)
+        return res.data
+    }
+    catch(err){throw new Error(err.message)}
 }
 export default dailyApi

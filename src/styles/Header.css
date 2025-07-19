@@ -6,13 +6,31 @@ header{
     padding: 10px;
     justify-content: space-around;
     align-items: center;
-    height: 7vh;
-    /* border-bottom: solid red; */
+    height: 10vh;
+    padding-top: 24px;
+    border-bottom: solid red;
 }
 .search{
     width: 25%;
     justify-self: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBtn{
+    height:2.5em;
+    border: none;
+    cursor: pointer;
+    background: inherit;
+    align-self: center;
+    background-color: hsl(222, 100%, 11%);
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    padding-right: 10px;
+}
+.searchBtn img{
+    height: 2em;
+    width: auto;
 }
 input{
     height: 2em;
@@ -22,6 +40,8 @@ input{
     padding: 5px;
     padding-left: 20px;
     border-radius: 999px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     background-color: hsl(222, 100%, 11%);
     color: white;
 }
@@ -33,7 +53,12 @@ input:focus{
 input::placeholder{
     color: rgb(162, 162, 162)
 }
-
+.toggleContainer{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    background-color: red;
+}
 .unit,.mode{
     border: solid 1px #001b5a;
     border-radius: 999px;
@@ -49,18 +74,7 @@ input::placeholder{
     color: white;
     border: none;
 }
-.searchBtn{
-    height: 1.7em;
-    border: none;
-    cursor: pointer;
-    background: inherit;
-    margin-left: 5px;
-    align-self: center;
-}
-.searchBtn img{
-    height: 2em;
-    width: auto;
-}
+
 
   /* Shared styles for both buttons */
 /* .option {

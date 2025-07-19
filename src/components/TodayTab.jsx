@@ -6,8 +6,8 @@ function TodayTab({apiData}) {
   
   return (
     <main className='todayTab'>
-        <TodaySummary/>
-        <TodayExtra/>
+        <TodaySummary apiData={apiData}/>
+        <TodayExtra apiData={apiData}/>
     </main>
   )
 }

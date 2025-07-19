@@ -10,18 +10,24 @@ import fiveDayApi from './services/fiveDayApi.js'
 import { useState,useEffect } from 'react'
 function App() {
   const [city, setCity] = useState()
-  const [dailyData, setDailyData] = useState()
+  const [dailyData, setDailyData] = useState(null)
   const [fiveDayData, setFiveDayData] = useState()
   const [error, setError] = useState()
   useEffect(()=>{
     if (!city) return 
     const fetchDailyData = async () =>{
       try{
+        console.log('calld the api???')
         const result = await dailyApi(city)
+        console.log(result)
+        console.log('res loading')
         setDailyData(result)
+        console.log("city:", city)
+console.log("raw dailyApi result:", result)
       } 
       catch(err){
         setError(err.message)
+        console.log(err.message)
       }
     }
     const fetchFiveDayData = async () =>{
@@ -34,7 +40,7 @@ function App() {
       }
     }
     fetchDailyData()
-    fetchFiveDayData()
+    // fetchFiveDayData()
   }
     
     ,[city])
@@ -42,10 +48,12 @@ function App() {
   return (
     <>
       <Header setCity={setCity}/>
-      <TodayTab apiData={dailyData}/>
+       {/* <TodayTab apiData={dailyData}/> */}
+       {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading"}
+
+      {/* {city && dailyData ? <DailyForecastChart apiData={dailyData}/> : "loading"} */}
       {/* <ForecastTab apiData={fiveDayData}/> */}
-      {/* <DailyForecastChart apiData={dailyData}/> */}
-      <ForecastChart apiData={fiveDayData}/>
+      {/* <ForecastChart apiData={fiveDayData}/> */}
       <Footer/>
     </>
   )
