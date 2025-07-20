@@ -11,6 +11,8 @@ async function dailyApi(city){
         const res = await axios.get(CURRENT_BY_CITY_URL)
         return res.data
     }
-    catch(err){throw new Error(err.message)}
+    catch(err){
+        console.error(err.message)
+        throw new Error(err.message)}
 }
 export default dailyApi

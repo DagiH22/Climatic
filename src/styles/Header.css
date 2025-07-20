@@ -8,7 +8,7 @@ header{
     align-items: center;
     height: 10vh;
     padding-top: 24px;
-    border-bottom: solid red;
+    /* border-bottom: solid red; */
 }
 .search{
     width: 25%;
@@ -16,9 +16,10 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 .searchBtn{
-    height:2.5em;
+    height:3.1em;
     border: none;
     cursor: pointer;
     background: inherit;
@@ -29,11 +30,11 @@ header{
     padding-right: 10px;
 }
 .searchBtn img{
-    height: 2em;
+    height: 2.5em;
     width: auto;
 }
 input{
-    height: 2em;
+    height: 2.5em;
     width: 100%;
     font-size: 1.2em;
     border: none;
@@ -47,17 +48,20 @@ input{
 }
 input:focus{
     background-color: hsl(222, 100%, 13%);
-    outline: 2px solid #001b5a;
-    border: 2px solid #001b5a;
+    outline: .5px solid #001b5a;
+    border: .5px solid #001b5a;
+    border-right: none;
 }
 input::placeholder{
     color: rgb(162, 162, 162)
+}
+input:-webkit-autofill {
+    background-color: hsl(222, 100%, 13%) !important;
 }
 .toggleContainer{
     display: flex;
     width: 30%;
     justify-content: space-around;
-    background-color: red;
 }
 .unit,.mode{
     border: solid 1px #001b5a;
@@ -73,6 +77,10 @@ input::placeholder{
     background:none;
     color: white;
     border: none;
+    cursor: pointer;
+}
+.climatic{
+    font-size: 4em;
 }
 
 

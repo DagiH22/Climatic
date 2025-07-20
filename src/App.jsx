@@ -17,13 +17,8 @@ function App() {
     if (!city) return 
     const fetchDailyData = async () =>{
       try{
-        console.log('calld the api???')
         const result = await dailyApi(city)
-        console.log(result)
-        console.log('res loading')
         setDailyData(result)
-        console.log("city:", city)
-console.log("raw dailyApi result:", result)
       } 
       catch(err){
         setError(err.message)
@@ -32,15 +27,15 @@ console.log("raw dailyApi result:", result)
     }
     const fetchFiveDayData = async () =>{
       try{
-        const result = await fiveDayApi(city)
-        setFiveDayData(result)
+        const fiveDayResult = await fiveDayApi(city)
+        setFiveDayData(fiveDayResult)
       } 
       catch(err){
         setError(err.message)
       }
     }
     fetchDailyData()
-    // fetchFiveDayData()
+    fetchFiveDayData()
   }
     
     ,[city])
@@ -51,7 +46,7 @@ console.log("raw dailyApi result:", result)
        {/* <TodayTab apiData={dailyData}/> */}
        {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading"}
 
-      {/* {city && dailyData ? <DailyForecastChart apiData={dailyData}/> : "loading"} */}
+      {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading"}
       {/* <ForecastTab apiData={fiveDayData}/> */}
       {/* <ForecastChart apiData={fiveDayData}/> */}
       <Footer/>

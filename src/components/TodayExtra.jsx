@@ -14,11 +14,13 @@ function TodayExtra({apiData}) {
       <div className='extraContainer'>
 
         <div className="tExtraCard feelsLike">
-          <div className="innerex">
-            <img src={feelsLike} alt="temperature icon" />
-            <span>Feels Like</span>
+          <div className='feelContainer'>
+            <div className="innerex">
+              <img src={feelsLike} alt="temperature icon" />
+              <span>Feels Like</span>
+            </div>
+            <p id='feel'>{apiData.main.feels_like}°C</p>
           </div>
-          <p>{apiData.main.feels_like}°C</p>
         </div>
 
         <div className="tExtraCard humidity">
