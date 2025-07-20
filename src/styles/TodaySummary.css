@@ -6,9 +6,9 @@
     border-radius: 25px;
     margin-left: 25px;
 }
-.mainImg{
-    height: 100%;
-    width: 50%;
+.mainImg img{
+    height: 20em;
+    width: 20em;
 }
 .summaryInfo{
     background-color: blue;

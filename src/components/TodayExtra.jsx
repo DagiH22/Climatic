@@ -18,7 +18,7 @@ function TodayExtra({apiData}) {
             <img src={feelsLike} alt="temperature icon" />
             <span>Feels Like</span>
           </div>
-          <p>{apiData.main.feels_like}</p>
+          <p>{apiData.main.feels_like}°C</p>
         </div>
 
         <div className="tExtraCard humidity">

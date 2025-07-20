@@ -3,10 +3,11 @@ import '../styles/TodaySummary.css'
 function TodaySummary({apiData}) {
   console.log(apiData.weather.main)
   console.log(apiData.weather.description)
+  const iconUrl = `https://openweathermap.org/img/wn/${apiData.weather[0].icon}@2x.png`
   return (
     <div className='todaySummary'>
         <div className='mainImg'>
-        
+          <img src={iconUrl} alt="current weather icon" />
         </div>
         <div className='summaryInfo'>
             <div className='mainTemp'>{apiData.main.temp}°C </div>
