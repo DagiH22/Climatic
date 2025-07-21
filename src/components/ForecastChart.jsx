@@ -1,60 +1,59 @@
 import '../styles/ForecastChart.css'
 import React from 'react';
 import {
-  Chart as ChartJS,
-  LineElement,
-  PointElement,
-  CategoryScale,
-  LinearScale,
-  Title,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
   Tooltip,
-  Legend
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+  ResponsiveContainer,
+  CartesianGrid,
+} from 'recharts';
 
-  ChartJS.register(
-    LineElement,
-    PointElement,
-    CategoryScale,
-    LinearScale,
-    Title,
-    Tooltip,
-    Legend
-  );
-  const data ={
-    labels:['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Sales',
-        data: [12, 19, 8, 15, 10, 17],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.3, // smooth curve
-        pointBackgroundColor: '#fff'
-      }
-    ]
+function ForecastChart({ apiData }) {
+  if (!apiData || !apiData.city || !apiData.list) {
+    console.log("reached api");
+    console.log(apiData);
+    return <p>Loading inside</p>;
   }
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: { display: true },
-      title: {
-        display: true,
-        text: 'Monthly Sales Data'
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+  const now = new Date();
+
+  const data = [];
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+
+  for (let i = 0; i < apiData.list.length; i+=2) {
+    const forecastTime = new Date(apiData.list[i].dt_txt + " UTC");
+
+    if (forecastTime > now) {
+      data.push({
+        time: `${days[forecastTime.getDay()]} ${forecastTime.getHours()}:00`,
+        temp: apiData.list[i].main.temp,
+      });
+      // if (data.length === 8) break;
     }
   }
-function ForecastChart({apiData}) {
+
   return (
-    <section className="forecastChartContainer">
-        <Line data={data} options={options} />;
+    <section className='dForcastCardContainer'>
+      <ResponsiveContainer width="90%" height="90%">
+        <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
+          <XAxis dataKey="time" />
+          <YAxis domain={['auto', 'auto']} />
+          <Tooltip />
+          <Line
+            type="monotone"
+            dataKey="temp"
+            stroke="blue"
+            strokeWidth={2}
+            dot={{ fill: '#fff', stroke: 'blue', strokeWidth: 2 }}
+            activeDot={{ r: 3 }}
+            fill="rgba(0, 0, 255, 0.2)"
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </section>
-  )
+  );
 }
 
 export default ForecastChart

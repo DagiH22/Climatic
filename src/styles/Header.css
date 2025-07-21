@@ -2,12 +2,13 @@ header{
     width: 100%;
     position: relative;
     font-size: 14px;
-    display: flex;
     padding: 10px;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 10vh;
     padding-top: 24px;
+    align-self: center;
     /* border-bottom: solid red; */
 }
 .search{

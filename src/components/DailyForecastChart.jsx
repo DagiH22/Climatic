@@ -19,7 +19,6 @@ function DailyForecastCard({ apiData }) {
 
   const now = new Date();
 
-  // Build array of objects like [{ time: "15:00", temp: 27 }, ...]
   const data = [];
 
   for (let i = 0; i < apiData.list.length; i++) {
@@ -31,7 +30,6 @@ function DailyForecastCard({ apiData }) {
         temp: apiData.list[i].main.temp,
       });
 
-      // Stop after 8 intervals (24 hours)
       if (data.length === 8) break;
     }
   }

@@ -41,16 +41,16 @@ function App() {
     ,[city])
 
   return (
-    <>
+    <div className='appContainer'>
       <Header setCity={setCity}/>
-       {/* <TodayTab apiData={dailyData}/> */}
-       {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading"}
+       {/* <TodayTab apiData={dailyData}/>*/}
+       {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading\n"}
 
-      {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading"}
-      {/* <ForecastTab apiData={fiveDayData}/> */}
-      {/* <ForecastChart apiData={fiveDayData}/> */}
+      {/* {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading\n"} */}
+      {/* {city && fiveDayData?.list ? <ForecastTab apiData={fiveDayData}/> :"laoding forcast tab"} */}
+      {city && fiveDayData?.list ? <ForecastChart apiData={fiveDayData}/> : "\n loading forecast chart"}
       <Footer/>
-    </>
+    </div>
   )
 }
 
