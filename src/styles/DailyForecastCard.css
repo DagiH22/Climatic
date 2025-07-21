@@ -1,17 +1,13 @@
 .dForcastCardContainer{
-    /* position: relative; */
-    height:25vh;
+    height:27vh;
     max-width: 100vw;
     width: 100vw;
-    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
+    /* position: relative; */
+    /* background-color: red; */
     
     
 }
-/* .dForcastCardContainer canvas {
-    width: 70% !important; 
-    height: 70% !important;
-  } */

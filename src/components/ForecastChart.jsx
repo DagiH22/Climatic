@@ -34,7 +34,7 @@ function ForecastChart({ apiData }) {
   }
 
   return (
-    <section className='dForcastCardContainer'>
+    <section className='forecastChartContainer'>
       <ResponsiveContainer width="90%" height="90%">
         <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
