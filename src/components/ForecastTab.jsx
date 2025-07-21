@@ -1,74 +1,80 @@
-import '../styles/ForecastTab.css'
+import React from 'react';
+import '../styles/ForecastTab.css'; // You can style the boxes here
 
-function ForecastTab({apiData}) { 
-  const forecastTime = new Date(apiData.list[i].dt_txt + " UTC");
-  const listLength = ((apiData.list.length + 1) / 5) - 1
-  let finishIndex = listLength 
-  let startIndex = 0;
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday"]
-  const avgTemp = [];
-  const time = []
-  const now = new Date();
-  const temporary = []
-  let cont = 0
-  // const firstDayData = 
-  for(let i = startIndex; i < finishIndex ; i++ ){
-    if (forecastTime > now) {
-       forecastTime.getHours() + ":00"
-       temporary.push( apiData.list[i].main.temp)}
-       for(let j = 0; temporary.length; j++){
-         cont += temporary[i]
-        }
-      }
-    time.push(days[forecastTime.getDay()] + forecastTime.getHours() + ":00")
-    avgTemp.push(cont/8)
-    startIndex += listLength
-    finishIndex += listLength
-
-  for(let i = startIndex; i < finishIndex ; i++ ){
-    if (forecastTime > now) {
-       forecastTime.getHours() + ":00"
-       temporary.push( apiData.list[i].main.temp)}
+function ForecastTab({ apiData }) {
+  if (!apiData || !apiData.list) {
+    return <p>Loading forecast...</p>;
   }
-  startIndex += listLength
-  finishIndex += listLength
 
-  for(let i = startIndex; i < finishIndex ; i++ ){
-    if (forecastTime > now) {
-       forecastTime.getHours() + ":00"
-       temporary.push( apiData.list[i].main.temp)}
-  }
-  startIndex += listLength
-  finishIndex += listLength
+  const groupedData = {};
 
-  for(let i = startIndex; i < finishIndex ; i++ ){
-    if (forecastTime > now) {
-       forecastTime.getHours() + ":00"
-       temporary.push( apiData.list[i].main.temp)
-      
-      }
-  }
-  startIndex += listLength
-  finishIndex += listLength
+  // 1. Group entries by date (YYYY-MM-DD)
+  apiData.list.forEach(entry => {
+    const date = entry.dt_txt.split(' ')[0]; // "2025-07-21"
+    if (!groupedData[date]) {
+      groupedData[date] = [];
+    }
+    groupedData[date].push(entry);
+  });
 
-  for(let i = startIndex; i < finishIndex ; i++ ){
-    if (forecastTime > now) {
-       forecastTime.getHours() + ":00"
-       temporary.push( apiData.list[i].main.temp)}
-  }
-  startIndex += listLength
-  finishIndex += listLength
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  // 2. Prepare summarized forecast for each day (max 5 days)
+  const summary = Object.keys(groupedData).slice(0, 5).map(date => {
+    const entries = groupedData[date];
+
+    // Only keep daytime entries (09:00–18:00 UTC)
+    const daytimeEntries = entries.filter(e => {
+      const hour = new Date(e.dt_txt + " UTC").getUTCHours();
+      return hour >= 9 && hour <= 18;
+    });
+
+    if (daytimeEntries.length === 0) return null; // skip if no day data
+
+    const temps = daytimeEntries.map(e => e.main.temp);
+    const avgTempC = temps.reduce((a, b) => a + b, 0) / temps.length;
+    // const avgTempC = avgTempK - 273.15;
+
+    const midDayEntry = daytimeEntries.find(e => e.dt_txt.includes("12:00:00"));
+    const icon = midDayEntry ? midDayEntry.weather[0].icon : daytimeEntries[0].weather[0].icon;
+
+    const weatherCount = {};
+    daytimeEntries.forEach(e => {
+      const main = e.weather[0].main;
+      weatherCount[main] = (weatherCount[main] || 0) + 1;
+    });
+    const mostCommonWeather = Object.entries(weatherCount).sort((a, b) => b[1] - a[1])[0][0];
+
+    const day = daysOfWeek[new Date(date).getDay()];
+
+    return {
+      day,
+      avgTemp: avgTempC.toFixed(1),
+      weather: mostCommonWeather,
+      icon
+    };
+  }).filter(Boolean); // remove any null days
+
   return (
     <section className='forecastTab'>
-        {avgTemp.map((element)=>{
-          <div className="fiveDaycard">{element}</div>
-        })}
-        {/* <div className="fiveDaycard">forecast 2</div>
-        <div className="fiveDaycard">forecast 3</div>
-        <div className="fiveDaycard">forecast 4</div>
-        <div className="fiveDaycard">forecast 5</div> */}
+      {summary.map((item, i) => (
+        <div className="fiveDaycard" key={i}>
+          <h3>{item.day}</h3>
+          <div className='dataContainer'>
+            <img
+              src={`../weathers/${item.icon}.svg`} // Customize path based on your setup
+              alt={item.weather}
+              className="weatherIcon"
+            />
+            <div className='textDataContainer'>
+              <p className='avgTemp'>{item.avgTemp}°C</p>
+              <p className='weatherText'>{item.weather}</p>
+            </div>
+          </div>
+        </div>
+      ))}
     </section>
-  )
+  );
 }
 
-export default ForecastTab
+export default ForecastTab;

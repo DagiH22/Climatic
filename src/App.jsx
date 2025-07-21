@@ -44,10 +44,10 @@ function App() {
     <div className='appContainer'>
       <Header setCity={setCity}/>
        {/* <TodayTab apiData={dailyData}/>*/}
-       {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading\n"}
+       {/* {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading\n"} */}
 
       {/* {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading\n"} */}
-      {/* {city && fiveDayData?.list ? <ForecastTab apiData={fiveDayData}/> :"laoding forcast tab"} */}
+      {city && fiveDayData?.list ? <ForecastTab apiData={fiveDayData}/> :"laoding forcast tab"}
       {city && fiveDayData?.list ? <ForecastChart apiData={fiveDayData}/> : "\n loading forecast chart"}
       <Footer/>
     </div>

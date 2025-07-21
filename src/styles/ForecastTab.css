@@ -1,11 +1,36 @@
 .forecastTab{
-    height: 66vh;
+    height: 50vh;
+    align-self: center;
     display: flex;
     align-items: center;
     gap: 2em;
 }
 .fiveDaycard{
-    width: 10em;
-    height: 15em;
-    border: 1px solid red;
+    width: 15em;
+    height: 18em;
+    border: 2px solid #001b5a;
+    border-radius: 25px;
+    padding: 1em;
+}
+h3{
+    font-size: 2.6em;
+}
+.avgTemp{
+    font-size: 2.3em;
+}
+.weatherText{
+    font-size: 1.7em;
+}   
+.weatherIcon{
+    height: 7em;
+    width: auto;
+    margin-right: 5px;
+}
+.dataContainer{
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+}
+.textDataContainer{
+
 }
