@@ -59,61 +59,41 @@ input::placeholder{
 input:-webkit-autofill {
     background-color: hsl(222, 100%, 13%) !important;
 }
+
+
+
 .toggleContainer{
     display: flex;
     width: 30%;
     justify-content: space-around;
 }
 .unit,.mode{
+    display: flex;
     border: solid 1px #001b5a;
     border-radius: 999px;
-    width: fit-content;
-    position: relative;
-    height: fit-content;
+    gap: 5px;
+    /* width: fit-content; */
+    /* position: relative; */
+    /* height: fit-content; */
 } 
 .toggle{
-    display: inline-block;
-    padding: 5px;
-    margin: 8px;
     background:none;
     color: white;
     border: none;
     cursor: pointer;
+    height: 100%;
+    font-size: 1.2em;
+    padding: 0.3em 1.5em;
+    border-radius: 999px;
 }
 .climatic{
     font-size: 4em;
 }
-
-
-  /* Shared styles for both buttons */
-/* .option {
-    flex: 1;
-    background: none;
-    border: none;
-    padding: 10px 10px;
-    border-radius: 999px;
-    cursor: pointer;
-    z-index: 1;
-    position: relative;
-    height: 20px;
-}*/
-/* Active indicator */
-/* .unit::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 5px;
-    width: calc(50%);
-    height: calc(100%);
-    background: #82CFFE;
-    border-radius: 999px;
-    z-index: 0;
-    transition: left 0.3s ease;
-}  */
-
-/* When second button is active, move the background */
-/* .unit.second-active::before {
-left: calc(50% + 5px);
-} */
+.active{
+    background-color: blue;
+}
+.activeMode{
+    background-color: blue;
+}
 
   

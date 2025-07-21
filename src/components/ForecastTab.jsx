@@ -57,6 +57,9 @@ function ForecastTab({ apiData }) {
 
   return (
     <section className='forecastTab'>
+      <div className='location'>
+        {/* {apiData.} */}
+      </div>
       {summary.map((item, i) => (
         <div className="fiveDaycard" key={i}>
           <h3>{item.day}</h3>

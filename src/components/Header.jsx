@@ -5,12 +5,14 @@ import searchImg from '../assets/images/searchIcon.svg'
 
 
 function Header({setCity}) {
-
+  const [isCelciusActive,setIsCelciusActive] = useState(true)
+  const [isLightMode,setisLightMode] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const handleClick = ()=>{
     setCity(inputValue)
     setInputValue('')
   }
+  
     
 
   return (
@@ -22,12 +24,13 @@ function Header({setCity}) {
         </div>
         <div className='toggleContainer'>
           <div className='unit'>
-              <button className='toggle option active'>°C</button>
-              <button className='toggle option'>°F</button>
+              <button className={isCelciusActive ? 'toggle option active' : 'toggle option'} onClick={()=>{setIsCelciusActive(true)}}>°C</button>
+              <button className={isCelciusActive ? 'toggle option' : 'toggle option active'} onClick={()=>{setIsCelciusActive(false)}}>°F</button>
           </div>
           <div className='mode'>
-              <button className='toggle lightMode '>L</button>
-              <button className='toggle nightMode '>N</button>
+            
+              <button className ={isLightMode ? 'toggle activeMode' : 'toggle' } onClick={()=>{setisLightMode(true)}}>L</button>
+              <button className={isLightMode ? 'toggle' : 'toggle activeMode' } onClick={()=>{setisLightMode(false)}}>N</button>
           </div>
         </div>
     </header>

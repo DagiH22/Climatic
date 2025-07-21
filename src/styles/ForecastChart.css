@@ -1,4 +1,7 @@
 .forecastChartContainer{
-    height:25vh;
+    height:20vh;
     background-color: blue;
+    width: 95vw;
+    align-self: center;
+    margin-bottom: 20px;
 }

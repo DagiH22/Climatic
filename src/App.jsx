@@ -13,6 +13,8 @@ function App() {
   const [dailyData, setDailyData] = useState(null)
   const [fiveDayData, setFiveDayData] = useState()
   const [error, setError] = useState()
+  const [dailyTab , setDailyTab] = useState(true)
+  const [isActive,setIsActive] = useState(true)
   useEffect(()=>{
     if (!city) return 
     const fetchDailyData = async () =>{
@@ -37,21 +39,38 @@ function App() {
     fetchDailyData()
     fetchFiveDayData()
   }
-    
     ,[city])
+    if(dailyTab){
+      return (
+        <div className='appContainer'>
+          <Header setCity={setCity}/>
+          <div className='tabToggle'>
+            <button className={dailyTab ? 'active': ''} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
+            <button className={dailyTab ? '': 'active'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
+          </div>
+          {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading\n"} 
+          {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading\n"}
+          <Footer/>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className='appContainer'>
+          <Header setCity={setCity}/>
+          <div className='tabToggle'>
+            <button className={dailyTab ? 'dataToggle active ': 'dataToggle'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
+            <button className={dailyTab ? 'dataToggle': 'active dataToggle'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
+          </div>
+          {city && fiveDayData?.list ? <ForecastTab apiData={fiveDayData}/> :"laoding forcast tab"}
+          {city && fiveDayData?.list ? <ForecastChart apiData={fiveDayData}/> : "\n loading forecast chart"}
+          
+          <Footer/>
+        </div>
+      )
+    }
 
-  return (
-    <div className='appContainer'>
-      <Header setCity={setCity}/>
-       {/* <TodayTab apiData={dailyData}/>*/}
-       {/* {city && dailyData?.main ? <TodayTab apiData={dailyData}/> : "loading\n"} */}
-
-      {/* {city && fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData}/> : "loading\n"} */}
-      {city && fiveDayData?.list ? <ForecastTab apiData={fiveDayData}/> :"laoding forcast tab"}
-      {city && fiveDayData?.list ? <ForecastChart apiData={fiveDayData}/> : "\n loading forecast chart"}
-      <Footer/>
-    </div>
-  )
+  
 }
 
 export default App
