@@ -7,7 +7,16 @@ import feelsLike from '../assets/images/temperature.svg'
 import visibility from '../assets/images/visibility.svg'
 import wind from '../assets/images/wind.svg'
 
-function TodayExtra({apiData}) {
+function TodayExtra({apiData,unit}) {
+  const toFahreniet =(celcius)=>{
+    return ((celcius * 9/5) + 32).toFixed(1)
+  }
+  const toMile = (km)=>{
+    return (km * 0.621371).toFixed(1)
+  }
+  const toMph = (mps)=>{
+    return (mps*2.23694).toFixed(1)
+  }
   return (
     <section className='todayExtra'>
       <p className='todayHighlight'>Today's Highlights</p>
@@ -19,7 +28,7 @@ function TodayExtra({apiData}) {
               <img src={feelsLike} alt="temperature icon" />
               <span>Feels Like</span>
             </div>
-            <p id='feel'>{apiData.main.feels_like}°C</p>
+            <p id='feel'>{unit ? apiData.main.feels_like :toFahreniet(apiData.main.feels_like) }{unit? "°C": "°F"}</p>
           </div>
         </div>
 
@@ -36,7 +45,7 @@ function TodayExtra({apiData}) {
             <img src={visibility} alt="visibility icon" />
             <span>Visibility</span>
           </div>
-          <p>{apiData.visibility / 1000} km</p>
+          <p>{unit ? apiData.visibility / 1000 : toMile(apiData.visibility / 1000)}{unit? "km" : "mi"}</p>
         </div>
 
         <div className="tExtraCard wind">
@@ -44,7 +53,7 @@ function TodayExtra({apiData}) {
             <img src={wind} alt="wind icon" />
             <span>Wind</span>
           </div>
-          <p>{apiData.wind.speed} m/s, {apiData.wind.deg}°</p>
+          <p>{unit ? apiData.wind.speed : toMph(apiData.wind.speed)}{unit ? "m/s" : "mph"}, {apiData.wind.deg}°</p>
         </div>
 
         <div className="tExtraCard cloudiness">

@@ -10,11 +10,14 @@ import {
   CartesianGrid,
 } from 'recharts';
 
-function ForecastChart({ apiData }) {
+function ForecastChart({ apiData,unit }) {
   if (!apiData || !apiData.city || !apiData.list) {
     // console.log("reached api");
     // console.log(apiData);
     return <p>Loading inside</p>;
+  }
+  const toFahreniet =(celcius)=>{
+    return ((celcius * 9/5) + 32).toFixed(1)
   }
   const now = new Date();
 
@@ -27,7 +30,7 @@ function ForecastChart({ apiData }) {
     if (forecastTime > now) {
       data.push({
         time: `${days[forecastTime.getDay()]} ${forecastTime.getHours()}:00`,
-        temp: apiData.list[i].main.temp,
+        temp: unit? (apiData.list[i].main.temp -273.15).toFixed(1) : toFahreniet(apiData.list[i].main.temp -273.15) ,
       });
       // if (data.length === 8) break;
     }

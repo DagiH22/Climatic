@@ -5,7 +5,6 @@ let lat
 let lon
 
 async function dailyApi(city){
-    const CURRENT_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${CURRENT_API_KEY}&units=metric`
     const CURRENT_BY_CITY_URL =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${CURRENT_API_KEY}&units=metric`
     try{
         const res = await axios.get(CURRENT_BY_CITY_URL)

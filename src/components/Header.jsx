@@ -4,9 +4,7 @@ import searchImg from '../assets/images/searchIcon.svg'
 // import handelApi from '../services/api'
 
 
-function Header({setCity}) {
-  const [isCelciusActive,setIsCelciusActive] = useState(true)
-  const [isLightMode,setisLightMode] = useState(false)
+function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCelciusActive}) {
   const [inputValue, setInputValue] = useState('')
   const handleClick = ()=>{
     setCity(inputValue)
@@ -27,10 +25,9 @@ function Header({setCity}) {
               <button className={isCelciusActive ? 'toggle option active' : 'toggle option'} onClick={()=>{setIsCelciusActive(true)}}>°C</button>
               <button className={isCelciusActive ? 'toggle option' : 'toggle option active'} onClick={()=>{setIsCelciusActive(false)}}>°F</button>
           </div>
-          <div className='mode'>
-            
-              <button className ={isLightMode ? 'toggle activeMode' : 'toggle' } onClick={()=>{setisLightMode(true)}}>L</button>
-              <button className={isLightMode ? 'toggle' : 'toggle activeMode' } onClick={()=>{setisLightMode(false)}}>N</button>
+          <div className={isLightMode ? 'mode dayIsActive' : 'mode nightIsActive' }>
+              <button className ={isLightMode ? 'toggle LightMode' : 'toggle night' } onClick={()=>{setisLightMode(true)}}></button>
+              <button className={!isLightMode ? 'toggle NightMode' : 'toggle light' } onClick={()=>{setisLightMode(false)}}></button>
           </div>
         </div>
     </header>

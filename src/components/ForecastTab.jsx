@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/ForecastTab.css'; // You can style the boxes here
 
-function ForecastTab({ apiData }) {
+function ForecastTab({ apiData ,unit}) {
   if (!apiData || !apiData.list) {
     return <p>Loading forecast...</p>;
   }
 
   const groupedData = {};
+  
 
   // 1. Group entries by date (YYYY-MM-DD)
   apiData.list.forEach(entry => {
@@ -32,8 +33,8 @@ function ForecastTab({ apiData }) {
     if (daytimeEntries.length === 0) return null; // skip if no day data
 
     const temps = daytimeEntries.map(e => e.main.temp);
-    const avgTempC = temps.reduce((a, b) => a + b, 0) / temps.length;
-    // const avgTempC = avgTempK - 273.15;
+    const avgTempC = (temps.reduce((a, b) => a + b, 0) / temps.length) - 273.15
+    const avgTempF = ((avgTempC * 9/5) + 32).toFixed(1)
 
     const midDayEntry = daytimeEntries.find(e => e.dt_txt.includes("12:00:00"));
     const icon = midDayEntry ? midDayEntry.weather[0].icon : daytimeEntries[0].weather[0].icon;
@@ -49,7 +50,7 @@ function ForecastTab({ apiData }) {
 
     return {
       day,
-      avgTemp: avgTempC.toFixed(1),
+      avgTemp:unit ? avgTempC.toFixed(1) : avgTempF ,
       weather: mostCommonWeather,
       icon
     };
@@ -71,7 +72,7 @@ function ForecastTab({ apiData }) {
                 className="weatherIcon"
               />
               <div className='textDataContainer'>
-                <p className='avgTemp'>{item.avgTemp}°C</p>
+                <p className='avgTemp'>{item.avgTemp} {unit ? "°C": "°F"}  </p>
                 <p className='weatherText'>{item.weather}</p>
               </div>
             </div>
