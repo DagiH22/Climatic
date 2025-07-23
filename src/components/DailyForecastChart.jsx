@@ -38,7 +38,7 @@ function DailyForecastCard({ apiData,unit}) {
 
   return (
     <section className='dForcastCardContainer'>
-      <p>5 day Temperature Forecast chart with 6 hr interval </p>
+      <p>24 hr Temperature Forecast chart with 3 hr interval </p>
       <ResponsiveContainer width="90%" height="90%">
         <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
