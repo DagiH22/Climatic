@@ -3,11 +3,17 @@
     max-width: 100vw;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
     /* position: relative; */
     /* background-color: red; */
-    
-    
+}
+.dForcastCardContainer p{
+    align-self: flex-start;
+    font-size: 1.5em;
+    margin-left: 5em;
+    margin-top:.5em ;
+    margin-bottom:.5em ;
 }

@@ -1,5 +1,6 @@
 :root{
-    --customDarkBlue:#000B25;
+    --customDarkBlue:#000B25 ;
+    --customLightBlue:#E6F0FF;
 }
 *{
     margin: 0;
@@ -14,3 +15,61 @@ body{
     height: 100vh;
     width: 100vw;
 }
+body.lightMode{
+    background-color: var(--customLightBlue);
+    color: black;
+}
+body.lightMode .toggle.option{
+    color: black;
+}
+body.lightMode .toggle.option.active{
+    color: white;
+}
+body.lightMode input{
+    background-color: white;
+    border: .5px solid hsl(216, 100%, 70%);
+    border-right: none;
+    color: black;
+}
+body.lightMode input:focus{
+    outline: .5px solid hsl(216, 100%, 60%);
+    border: .5px solid hsl(216, 100%, 60%);
+    border-right: none;
+}
+body.lightMode .searchBtn{
+    background-color: white;
+    border: .5px solid hsl(216, 100%, 70%);
+    border-left: none;
+}
+body.lightMode .dataLoadingScreen{
+    color: black;
+}
+body.lightMode .tabToggleBtn{
+    color: black;
+}
+body.lightMode .tabToggleBtn.active{
+    color: white;
+}
+body.lightMode .tExtraCard{
+    background-color: hsl(216, 100%, 90%);
+    border:solid 1.5px hsl(216, 100%, 60%);
+}
+body.lightMode .todayExtra{
+    border:solid 2px hsl(216, 100%, 60%);
+}
+body.lightMode .todaySummary{
+    border:solid 2px hsl(216, 100%, 60%);
+}
+body.lightMode .unit{
+    border:solid 1px hsl(216, 100%, 60%);
+}
+body.lightMode .mode{
+    border:solid 1px hsl(216, 100%, 60%);
+}
+body.lightMode .tabToggle{
+    border:solid 1px hsl(216, 100%, 60%);
+}
+body.lightMode .fiveDaycard{
+    border:solid 2px hsl(216, 100%, 60%);
+}
+

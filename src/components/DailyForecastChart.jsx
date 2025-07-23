@@ -29,7 +29,7 @@ function DailyForecastCard({ apiData,unit}) {
     if (forecastTime > now) {
       data.push({
         time: forecastTime.getHours() + ":00",
-        temp: unit? apiData.list[i].main.temp -273.15 : toFahreniet(apiData.list[i].main.temp -273.15),
+        temp: unit? apiData.list[i].main.temp : toFahreniet(apiData.list[i].main.temp),
       });
 
       if (data.length === 8) break;
@@ -38,6 +38,7 @@ function DailyForecastCard({ apiData,unit}) {
 
   return (
     <section className='dForcastCardContainer'>
+      <p>5 day Temperature Forecast chart with 6 hr interval </p>
       <ResponsiveContainer width="90%" height="90%">
         <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
           {/* <CartesianGrid strokeDasharray="3 3" /> */}

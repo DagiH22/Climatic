@@ -33,7 +33,7 @@ function ForecastTab({ apiData ,unit}) {
     if (daytimeEntries.length === 0) return null; // skip if no day data
 
     const temps = daytimeEntries.map(e => e.main.temp);
-    const avgTempC = (temps.reduce((a, b) => a + b, 0) / temps.length) - 273.15
+    const avgTempC = (temps.reduce((a, b) => a + b, 0) / temps.length)
     const avgTempF = ((avgTempC * 9/5) + 32).toFixed(1)
 
     const midDayEntry = daytimeEntries.find(e => e.dt_txt.includes("12:00:00"));

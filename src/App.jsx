@@ -24,6 +24,14 @@ function App() {
   const [isActive,setIsActive] = useState(true)
   const [location, setLocation] = useState(null);
   useEffect(()=>{
+    if(isLightMode){
+       document.body.classList.add('lightMode');
+    }
+    else{
+      document.body.classList.remove('lightMode');
+    }
+  },[isLightMode])
+  useEffect(()=>{
     if (!city) return 
     const fetchDailyData = async () =>{
       try{
@@ -105,8 +113,8 @@ function App() {
         <div className='appContainer'>
           <Header setCity={setCity} isLightMode={isLightMode} setisLightMode={setisLightMode} setIsCelciusActive={setIsCelciusActive} isCelciusActive={isCelciusActive}/>
           <div className='tabToggle'>
-            <button className={dailyTab ? 'active': ''} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
-            <button className={dailyTab ? '': 'active'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
+            <button className={dailyTab ? 'active tabToggleBtn': 'tabToggleBtn'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
+            <button className={dailyTab ? 'tabToggleBtn': 'active tabToggleBtn'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
           </div>
           {dailyData?.main ? <TodayTab apiData={dailyData} unit={isCelciusActive}/> : <DataLoadingScreen/>} 
           {fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData} unit={isCelciusActive}/> : <ChartLoadingScreen/>}
@@ -119,8 +127,8 @@ function App() {
         <div className='appContainer'>
           <Header setCity={setCity} isLightMode={isLightMode} setisLightMode={setisLightMode} setIsCelciusActive={setIsCelciusActive} isCelciusActive={isCelciusActive}/>
           <div className='tabToggle'>
-            <button className={dailyTab ? 'dataToggle active ': 'dataToggle'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
-            <button className={dailyTab ? 'dataToggle': 'active dataToggle'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
+            <button className={dailyTab ? 'tabToggleBtn active ': 'tabToggleBtn'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
+            <button className={dailyTab ? 'tabToggleBtn': 'active tabToggleBtn'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
           </div>
           { fiveDayData?.list ? <ForecastTab apiData={fiveDayData} unit={isCelciusActive}/> :<DataLoadingScreen/>}
           { fiveDayData?.list ? <ForecastChart apiData={fiveDayData} unit={isCelciusActive}/> :<ChartLoadingScreen/>}
