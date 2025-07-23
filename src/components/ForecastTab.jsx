@@ -57,25 +57,28 @@ function ForecastTab({ apiData }) {
 
   return (
     <section className='forecastTab'>
-      <div className='location'>
-        {/* {apiData.} */}
+      <div className='locationName'>
+        {apiData.city.name}
       </div>
-      {summary.map((item, i) => (
-        <div className="fiveDaycard" key={i}>
-          <h3>{item.day}</h3>
-          <div className='dataContainer'>
-            <img
-              src={`../weathers/${item.icon}.svg`} // Customize path based on your setup
-              alt={item.weather}
-              className="weatherIcon"
-            />
-            <div className='textDataContainer'>
-              <p className='avgTemp'>{item.avgTemp}°C</p>
-              <p className='weatherText'>{item.weather}</p>
+      <div className="fiveDaycardContainer">
+        {summary.map((item, i) => (
+          <div className="fiveDaycard" key={i}>
+            <h3>{item.day}</h3>
+            <div className='dataContainer'>
+              <img
+                src={`../weathers/${item.icon}.svg`}
+                alt={item.weather}
+                className="weatherIcon"
+              />
+              <div className='textDataContainer'>
+                <p className='avgTemp'>{item.avgTemp}°C</p>
+                <p className='weatherText'>{item.weather}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+
+      </div>
     </section>
   );
 }

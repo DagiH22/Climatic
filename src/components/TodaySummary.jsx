@@ -4,7 +4,7 @@ import descriptionIcon from '../assets/images/description.svg'
 
 function TodaySummary({apiData}) {
   const iconUrl = `/weathers/${apiData.weather[0].icon}.svg`
-  console.log(apiData.weather[0].icon)
+  // console.log(apiData.weather[0].icon)
   // console.log(iconUrl)
   return (
     <div className='todaySummary'>

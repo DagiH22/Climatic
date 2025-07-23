@@ -1,0 +1,11 @@
+.dataLoadingScreen{
+    margin-top: 20px;
+    width: 90vw;
+    align-self: center;
+    height: 50vh;
+    /* margin-left: 3em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}

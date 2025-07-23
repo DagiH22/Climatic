@@ -12,8 +12,8 @@ import {
 
 function ForecastChart({ apiData }) {
   if (!apiData || !apiData.city || !apiData.list) {
-    console.log("reached api");
-    console.log(apiData);
+    // console.log("reached api");
+    // console.log(apiData);
     return <p>Loading inside</p>;
   }
   const now = new Date();
