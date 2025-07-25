@@ -1,21 +1,24 @@
 .forecastTab{
     height: 50vh;
-    align-self: center;
     display: flex;
     flex-direction: column;
     gap: 1em;
+    width: 90%;
+    /* padding-left: 2rem; */
+    /* background-color: blue; */
 }
 .locationName{
     margin-top:.5em;
     font-size: 2.5em;
-    margin-left: -1em;
+    /* margin-left: 6rem; */
 }
 .fiveDaycardContainer{
-    align-self: center;
+    align-self: flex-start;
     display: flex;
     align-items: center;
     gap: 2em;
-    margin-left: -3em;
+    /* margin-left: 5rem; */
+    /* margin-left: -3em; */
 }
 .fiveDaycard{
     width: 15em;

@@ -3,12 +3,14 @@ header{
     position: relative;
     font-size: 14px;
     padding: 10px;
+    /* padding-left: 2em; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 10vh;
     padding-top: 24px;
     align-self: center;
+    /* background-color: red; */
     /* border-bottom: solid red; */
 }
 .search{
@@ -99,6 +101,7 @@ input:-webkit-autofill {
 }
 .climatic{
     font-size: 4em;
+    justify-self: flex-start;
 }
 .active{
     background-color: blue;

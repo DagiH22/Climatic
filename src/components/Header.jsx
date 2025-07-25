@@ -6,7 +6,7 @@ import searchImg from '../assets/images/searchIcon.svg'
 
 function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCelciusActive}) {
   const [inputValue, setInputValue] = useState('')
-  const handleClick = ()=>{
+  const handleSubmit = ()=>{
     setCity(inputValue)
     setInputValue('')
   }
@@ -17,8 +17,8 @@ function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCe
     <header>
         <div className='climatic'>Climatic</div>
         <div className='search'>
-           <input type="text" id='search' placeholder='Enter city name' value={inputValue} onChange={ e => {setInputValue(e.target.value)}} />
-           <button className='searchBtn' onClick={handleClick}><img src={searchImg} alt="search icon" /></button>
+           <input type="text" id='search' placeholder='Enter city name' value={inputValue} onChange={ e => {setInputValue(e.target.value)}} onKeyDown={e => {if (e.key === 'Enter') {handleSubmit()}}}/>
+           <button className='searchBtn' onClick={handleSubmit}><img src={searchImg} alt="search icon" /></button>
         </div>
         <div className='toggleContainer'>
           <div className='unit'>
