@@ -72,4 +72,11 @@ body.lightMode .tabToggle{
 body.lightMode .fiveDaycard{
     border:solid 2px hsl(216, 100%, 60%);
 }
-
+body.lightMode .fcustom{
+    background-color: hsl(216, 100%, 90%);
+    border: 1px solid hsl(216, 100%, 70%);
+}
+body.lightMode .dcustom{
+    background-color: hsl(216, 100%, 90%);
+    border: 1px solid hsl(216, 100%, 70%);
+}

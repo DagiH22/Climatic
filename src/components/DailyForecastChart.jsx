@@ -20,22 +20,34 @@ function DailyForecastCard({ apiData,unit}) {
     return ((celcius * 9/5) + 32).toFixed(1)
   }
   const now = new Date();
-
   const data = [];
+
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
 
   for (let i = 0; i < apiData.list.length; i++) {
     const forecastTime = new Date(apiData.list[i].dt_txt + " UTC");
 
     if (forecastTime > now) {
       data.push({
-        time: forecastTime.getHours() + ":00",
-        temp: unit? apiData.list[i].main.temp : toFahreniet(apiData.list[i].main.temp),
+        time: `${days[forecastTime.getDay()]} ${forecastTime.getHours()}:00`,
+        temp: unit? (apiData.list[i].main.temp ).toFixed(1) : toFahreniet(apiData.list[i].main.temp ) ,
       });
-
       if (data.length === 8) break;
     }
   }
 
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className='dcustom'>
+          <p> {label}</p>
+          <p> {payload[0].value} {unit ? '°C':'°F'}</p>
+        </div>
+      )
+    }
+  
+    return null;
+  }
   return (
     <section className='dForcastCardContainer'>
       <p>24 hr Temperature Forecast chart with 3 hr interval </p>
@@ -44,7 +56,7 @@ function DailyForecastCard({ apiData,unit}) {
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <XAxis dataKey="time" />
           <YAxis domain={['auto', 'auto']} />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
             dataKey="temp"
@@ -57,7 +69,7 @@ function DailyForecastCard({ apiData,unit}) {
         </LineChart>
       </ResponsiveContainer>
     </section>
-  );
+  )
 }
 
-export default DailyForecastCard;
+export default DailyForecastCard

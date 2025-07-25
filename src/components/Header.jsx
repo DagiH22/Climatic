@@ -7,15 +7,22 @@ import searchImg from '../assets/images/searchIcon.svg'
 function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCelciusActive}) {
   const [inputValue, setInputValue] = useState('')
   const handleSubmit = ()=>{
-    setCity(inputValue)
+    const trimmed = inputValue.trim()
+    if(trimmed === ''){
+      setInputValue('')
+      return
+    }
+    setCity(trimmed)
     setInputValue('')
   }
   
   useEffect(()=>{
-    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-    const theme = localStorage.getItem('theme');
-    console.log('inside header ',theme)
-  },[isLightMode])
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+      localStorage.setItem('tempMode', isCelciusActive ? 'celsius': 'fahrenheit') 
+      console.log(localStorage.getItem('tempmode'))
+    }
+  },[isLightMode,isCelciusActive])
     
 
   return (

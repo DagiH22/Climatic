@@ -20,7 +20,6 @@ function ForecastChart({ apiData,unit }) {
     return ((celcius * 9/5) + 32).toFixed(1)
   }
   const now = new Date();
-
   const data = [];
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
 
@@ -35,6 +34,18 @@ function ForecastChart({ apiData,unit }) {
       // if (data.length === 8) break;
     }
   }
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className='fcustom'>
+          <p> {label}</p>
+          <p> {payload[0].value} {unit ? '°C':'°F'}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
 
   return (
     <section className='forecastChartContainer'>
@@ -44,7 +55,7 @@ function ForecastChart({ apiData,unit }) {
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <XAxis dataKey="time" />
           <YAxis domain={['auto', 'auto']} />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
             dataKey="temp"

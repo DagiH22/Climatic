@@ -17,3 +17,11 @@
     margin-top:.5em ;
     /* margin-bottom:.5em ; */
 }
+.dcustom{
+    border: 1px solid #001b5a;
+    background-color: hsl(222, 100%, 11%);
+        padding: 10px;
+        border-radius: 25px;
+        font-size: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);  
+}

@@ -12,17 +12,18 @@ import fiveDayByCoord from './services/fiveDayByCoord.js'
 import { useState,useEffect } from 'react'
 import DataLoadingScreen from './components/DataLoadingScreen.jsx'
 import ChartLoadingScreen from './components/ChartLoadingScreen.jsx'
+import Error from './components/Error.jsx'
 
 function App() {
-  const [isLightMode,setisLightMode] = useState(() => {return localStorage.getItem('theme') === 'light'});
-  const [isCelciusActive,setIsCelciusActive] = useState(true)
-  const [city, setCity] = useState()
+  const [isLightMode,setisLightMode] = useState(() => {return localStorage.getItem('theme') === 'light' ?? false});
+  const [isCelciusActive,setIsCelciusActive] = useState(()=>{return localStorage.getItem('tempMode') === 'celsius' ?? true})
+  const [city, setCity] = useState('')
   const [dailyData, setDailyData] = useState(null)
   const [fiveDayData, setFiveDayData] = useState()
   const [error, setError] = useState()
   const [dailyTab , setDailyTab] = useState(true)
-  const [isActive,setIsActive] = useState(true)
-  const [location, setLocation] = useState(null);
+// const [isActive,setIsActive] = useState(true)
+  // const [location, setLocation] = useState(null);
   useEffect(()=>{
     if(isLightMode){
        document.body.classList.add('lightMode');
@@ -39,7 +40,7 @@ function App() {
         setDailyData(result)
       } 
       catch(err){
-        setError(err.message)
+        setError(err)
         console.log(err.message)
       }
     }
@@ -49,7 +50,7 @@ function App() {
         setFiveDayData(fiveDayResult)
       } 
       catch(err){
-        setError(err.message)
+        setError(err)
       }
     }
     fetchDailyData()
@@ -68,7 +69,7 @@ function App() {
         setDailyData(result)
       } 
       catch(err){
-        setError(err.message)
+        setError(err)
         console.log(err.message)
       }
     }
@@ -78,14 +79,14 @@ function App() {
         setFiveDayData(fiveDayResult)
       } 
       catch(err){
-        setError(err.message)
+        setError(err)
       }
     }
 
     const saved = localStorage.getItem('userLocation');
   if (saved) {
     const parsed = JSON.parse(saved)
-    setLocation(parsed);
+    
     fetchDailyCoordData(parsed)
     fetchFiveDayCoordData(parsed)
   }
@@ -98,7 +99,7 @@ function App() {
                 lon: position.coords.longitude
               };
               localStorage.setItem('userLocation', JSON.stringify(coords));
-              setLocation(coords);
+              
               fetchDailyCoordData(coords)
               fetchFiveDayCoordData(coords)
             },
@@ -111,37 +112,35 @@ function App() {
         }
     }
   },[])
-    if(dailyTab){
       return (
         <div className='appContainer'>
           <Header setCity={setCity} isLightMode={isLightMode} setisLightMode={setisLightMode} setIsCelciusActive={setIsCelciusActive} isCelciusActive={isCelciusActive}/>
-          <div className='tabToggle'>
-            <button className={dailyTab ? 'active tabToggleBtn': 'tabToggleBtn'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
-            <button className={dailyTab ? 'tabToggleBtn': 'active tabToggleBtn'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
-          </div>
-          {dailyData?.main ? <TodayTab apiData={dailyData} unit={isCelciusActive}/> : <DataLoadingScreen/>} 
-          {fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData} unit={isCelciusActive}/> : <ChartLoadingScreen/>}
-          <Footer/>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className='appContainer'>
-          <Header setCity={setCity} isLightMode={isLightMode} setisLightMode={setisLightMode} setIsCelciusActive={setIsCelciusActive} isCelciusActive={isCelciusActive}/>
-          <div className='tabToggle'>
-            <button className={dailyTab ? 'tabToggleBtn active ': 'tabToggleBtn'} onClick={()=>{setDailyTab(true)}}>Daily Data</button>
-            <button className={dailyTab ? 'tabToggleBtn': 'active tabToggleBtn'} onClick={()=>{setDailyTab(false)}}>5 Day Forecast</button>
-          </div>
-          { fiveDayData?.list ? <ForecastTab apiData={fiveDayData} unit={isCelciusActive}/> :<DataLoadingScreen/>}
-          { fiveDayData?.list ? <ForecastChart apiData={fiveDayData} unit={isCelciusActive}/> :<ChartLoadingScreen/>}
+          {error ? <Error err={error}/> : 
+            <div className='mainContainer'>
+            <div className='tabToggle'>
+              <button className={dailyTab ? 'active tabToggleBtn' : 'tabToggleBtn'} onClick={() => setDailyTab(true)}>Daily Data</button>
+              <button className={!dailyTab ? 'active tabToggleBtn' : 'tabToggleBtn'} onClick={() => setDailyTab(false)}>5 Day Forecast</button>
+            </div>
           
+            {dailyTab ? (
+              <>
+                {dailyData?.main ? <TodayTab apiData={dailyData} unit={isCelciusActive} /> : <DataLoadingScreen />}
+                {fiveDayData?.list ? <DailyForecastChart apiData={fiveDayData} unit={isCelciusActive} /> : <ChartLoadingScreen />}
+              </>
+            ) : (
+              <>
+                {fiveDayData?.list ? <ForecastTab apiData={fiveDayData} unit={isCelciusActive} /> : <DataLoadingScreen />}
+                {fiveDayData?.list ? <ForecastChart apiData={fiveDayData} unit={isCelciusActive} /> : <ChartLoadingScreen />}
+              </>
+            )}
+          </div>}
           <Footer/>
         </div>
       )
     }
 
-  
-}
+
 
 export default App
+
+
