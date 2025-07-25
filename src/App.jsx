@@ -14,7 +14,7 @@ import DataLoadingScreen from './components/DataLoadingScreen.jsx'
 import ChartLoadingScreen from './components/ChartLoadingScreen.jsx'
 
 function App() {
-  const [isLightMode,setisLightMode] = useState(false)
+  const [isLightMode,setisLightMode] = useState(() => {return localStorage.getItem('theme') === 'light'});
   const [isCelciusActive,setIsCelciusActive] = useState(true)
   const [city, setCity] = useState()
   const [dailyData, setDailyData] = useState(null)
@@ -59,6 +59,9 @@ function App() {
 
 
   useEffect(()=>{
+    // const theme = localStorage.getItem('theme');
+    // console.log(theme)
+    // setisLightMode(theme === 'light');
     const fetchDailyCoordData = async (parsed) =>{
       try{
         const result = await dailybyCoord(parsed)

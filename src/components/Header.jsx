@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import '../styles/Header.css'
 import searchImg from '../assets/images/searchIcon.svg'
 // import handelApi from '../services/api'
@@ -11,6 +11,11 @@ function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCe
     setInputValue('')
   }
   
+  useEffect(()=>{
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    const theme = localStorage.getItem('theme');
+    console.log('inside header ',theme)
+  },[isLightMode])
     
 
   return (
@@ -26,8 +31,8 @@ function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCe
               <button className={isCelciusActive ? 'toggle option' : 'toggle option active'} onClick={()=>{setIsCelciusActive(false)}}>°F</button>
           </div>
           <div className={isLightMode ? 'mode dayIsActive' : 'mode nightIsActive' }>
-              <button className ={isLightMode ? 'toggle LightMode' : 'toggle night' } onClick={()=>{setisLightMode(true)}}></button>
-              <button className={!isLightMode ? 'toggle NightMode' : 'toggle light' } onClick={()=>{setisLightMode(false)}}></button>
+              <button className ={isLightMode ? 'toggle LightMode' : 'toggle night' } onClick={()=>{setisLightMode(true)}  }></button>
+              <button className={!isLightMode ? 'toggle NightMode' : 'toggle light' } onClick={()=>{setisLightMode(false)} }></button>
           </div>
         </div>
     </header>
