@@ -40,3 +40,58 @@
     width: auto;
     margin-right: 5px;
 }
+@media (max-width: 991px) {
+    .todaySummary {
+        width: 100%;
+        height: auto;
+        align-self: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+      }
+      .summaryInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5em;
+    }
+    .summaryInfo > *{
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .todaySummary {
+      width: 100%;
+      height: auto;
+      align-items: center;
+      text-align: center;
+      /* padding-left: 1em; */
+    }
+    .mainImg img {
+      height: 10em;
+      width: 10em;
+      margin: 0;
+    }
+    .summaryInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5em;
+    }
+    .summaryInfo > *{
+        margin-top: 5px;
+    }
+    .mainTemp {
+      font-size: 2.5rem;
+      margin-top: .5em;
+    }
+    .weather{
+        font-size: 1.7rem; 
+        /* background-color: red; */
+    } 
+    .description, .location {
+      font-size: 1.3rem;
+    }
+  }
+  

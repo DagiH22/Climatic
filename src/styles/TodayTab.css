@@ -4,6 +4,23 @@
     width: 90vw;
     align-self: center;
     height: 50vh;
+    /* padding-left: .5em; */
     /* margin-left: 3em; */
     /* padding-left: 2rem; */
+    /* background-color: yellow; */
 }
+@media (max-width: 991px) {
+  .todayTab {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+}
+@media (max-width: 768px) {
+    .todayTab {
+      flex-direction: column;
+      height: auto;
+      gap: 1rem;
+    }
+  }
+  

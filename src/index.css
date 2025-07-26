@@ -14,6 +14,7 @@ body{
     max-width: 100vw;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 body.lightMode{
     background-color: var(--customLightBlue);
