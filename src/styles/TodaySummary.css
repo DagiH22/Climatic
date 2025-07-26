@@ -94,4 +94,28 @@
       font-size: 1.3rem;
     }
   }
+  @media (max-width: 300px) {
+    .mainImg img {
+        height: 7em;
+        width: 7em;
+        margin: 0;
+      }
+      .summaryInfo > *{
+        margin-top: 3px;
+    }
+      .mainTemp {
+        font-size: 1.75rem;
+      }
+      .weather{
+        font-size: 1.4rem; 
+    } 
+    .description, .location {
+        font-size: 1rem;
+      }
+      .Icon{
+        height: .7em;
+        width: auto;
+        margin-right: 2px;
+    }
+  }
   

@@ -49,5 +49,17 @@
     }
     .chartWrapper{
         max-width: 100%;
+        margin-left: -2em;
+        font-size: .9rem;
+    }
+}
+@media (max-width: 300px) {
+    .dForcastCardContainer p{
+        font-size: 1rem;
+    }
+    .chartWrapper{
+        font-size: .5em;
+        width: 100vw;
+        margin-left: -5em;
     }
 }

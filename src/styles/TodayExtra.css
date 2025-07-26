@@ -210,3 +210,24 @@
     }
     
   }
+  @media (max-width: 300px) {
+    .tExtraCard {
+      width:45%;
+      padding: .5rem;
+    }
+    .todayExtra {
+      padding: .8rem;
+    }
+    .innerex {
+      gap: 0.25rem;
+    }
+    .tExtraCard span {
+      font-size: .8rem;
+      font-weight: bold;
+    }
+    .tExtraCard p {
+      justify-self: center;
+      font-size: 1.3rem;
+      margin-bottom: 19px;
+    }
+  }

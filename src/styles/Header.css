@@ -187,4 +187,30 @@ input:-webkit-autofill {
     }
   
   }
+  @media (max-width: 300px) {
+    header{
+      gap: 0.5em;
+    }
+    .searchBtn{
+      height:2.1em;
+    }
+    .searchBtn img{
+      height: 1.6em;
+      width: auto;
+    }
+    input{
+      height: 2em;
+    }
+    .unit,.mode{
+      gap: 3px;
+    }
+    .toggle{
+      font-size: .8em;
+      padding: 0.3em .7em;
+    }
+    .climatic{
+      font-size: 2em;
+    }
+  
+  }
   
