@@ -56,23 +56,25 @@
         flex-wrap: wrap;
         justify-content: center;
         width: fit-content;
-        margin-top: 8px;
+        margin-top: 1rem;
       }
 }
 @media (max-width: 768px) {
-    .tabToggle {
-      margin-left: calc(5% );
-      flex-wrap: wrap;
-      justify-content: center;
-      width: fit-content;
-    }
-  
     .tabToggle > button {
       font-size: 0.9rem;
       padding: 0.4em 1em;
     }
     .appContainer{
         padding-bottom: 1em;
+    }
+  }
+  @media (max-width: 300px){
+    .tabToggle {
+        font-size: .7rem;
+      }
+      .tabToggle > button{
+        font-size: .8rem;
+        padding: 0.3em 1em;
     }
   }
   
