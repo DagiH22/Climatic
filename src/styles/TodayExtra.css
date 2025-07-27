@@ -98,7 +98,18 @@
     grid-column: 4 / 5;
     grid-row: 2;
   }
-
+  @media (max-width :1400px)and (min-width:1000px) and (max-height:1000px) {
+    .todayExtra {
+      padding: 25px;
+      height: 40vh;
+    }
+    .extraContainer {
+      gap: 1.2em;
+    }
+    .tExtraCard p {
+      font-size: 1.7em;
+    }
+  }
 
   
   @media (max-width: 991px) {
