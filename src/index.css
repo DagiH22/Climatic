@@ -81,3 +81,10 @@ body.lightMode .dcustom{
     background-color: hsl(216, 100%, 90%);
     border: 1px solid hsl(216, 100%, 70%);
 }
+
+/* @media (max-width: 991px) {
+    body{
+        max-height: fit-content;
+        height: fit-content;
+    }
+} */

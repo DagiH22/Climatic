@@ -50,23 +50,25 @@ function ForecastChart({ apiData,unit }) {
   return (
     <section className='forecastChartContainer'>
       <p>5 day Temperature Forecast chart with 6 hr interval </p>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 30, right: 30, left: 0, bottom: 5 }}>
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          <XAxis dataKey="time" />
-          <YAxis domain={['auto', 'auto']} />
-          <Tooltip content={<CustomTooltip />} />
-          <Line
-            type="monotone"
-            dataKey="temp"
-            stroke="blue"
-            strokeWidth={2}
-            dot={{ fill: '#fff', stroke: 'blue', strokeWidth: 2 }}
-            activeDot={{ r: 3 }}
-            fill="rgba(0, 0, 255, 0.2)"
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className='chartWrapper'>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data} margin={{ top: 30, right: 30, left: 0, bottom: 5 }}>
+            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            <XAxis dataKey="time" />
+            <YAxis domain={['auto', 'auto']} />
+            <Tooltip content={<CustomTooltip />} />
+            <Line
+              type="monotone"
+              dataKey="temp"
+              stroke="blue"
+              strokeWidth={2}
+              dot={{ fill: '#fff', stroke: 'blue', strokeWidth: 2 }}
+              activeDot={{ r: 3 }}
+              fill="rgba(0, 0, 255, 0.2)"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </section>
   );
 }

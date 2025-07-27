@@ -107,15 +107,15 @@
         margin-top: 5px;
     }
     .mainTemp {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-top: .5em;
     }
     .weather{
-        font-size: 1.7rem; 
+        font-size: 1.4rem; 
         /* background-color: red; */
     } 
     .description, .location {
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
   }
   @media (max-width: 300px) {

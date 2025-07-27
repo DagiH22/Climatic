@@ -114,7 +114,7 @@
   
   @media (max-width: 991px) {
     .todayExtra {
-      width: 100%; /* max 55rem but flexible */
+      width: 100%; 
       border: 0.125rem solid #001b5a;
       margin: 0 auto;
       border-radius: 1.5rem;

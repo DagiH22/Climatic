@@ -1,12 +1,72 @@
-# React + Vite
+# 🌤️ Climatic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Climatic** is a clean, responsive weather web app built with a modern frontend stack. It fetches real-time weather data and provides a detailed, user-friendly forecast interface.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📍 **Auto-Detect Location**  
+  On first load, Climatic requests the user's browser location to show local weather data instantly.
 
-## Expanding the ESLint configuration
+- 🔍 **City-Based Search**  
+  Users can search for weather in any city by typing the name and pressing **Enter** or clicking the **Search Icon**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🌡️ **Current Weather Overview**
+  - Temperature (°C/°F toggle)
+  - Feels like
+  - Humidity
+  - Cloudiness
+  - Wind speed
+  - Visibility
+  - Sunrise & Sunset times
+
+- 🕒 **24-Hour Forecast**
+  - Line chart with 3-hour intervals
+  - Shows average temperature across the day
+
+- 📅 **5-Day Forecast Tab**
+  - Daily forecast cards with average temperature
+  - Includes an additional graph showing temperature in 6-hour intervals
+
+- 🎨 **Custom Weather Icons**
+  - Hand-crafted SVG icons for various weather conditions
+
+- 📱 **Mobile Responsive**
+  - Fully optimized for all screen sizes
+
+- 🌙 **Dark/Light Mode**
+  - Toggle between light and dark themes
+  - User preference saved in local storage
+
+- 🌡️ **Temperature Unit Toggle**
+  - Easily switch between Celsius and Fahrenheit
+  - User preference also saved in local storage
+
+## 🛠️ Technologies Used
+
+- React.js  
+- CSS (flexbox, grid, media queries)  
+- Browser Geolocation API  
+- Weather API (OpenWeather)  
+- LocalStorage for persisting user preferences
+
+## 📸 Preview
+
+
+
+## 🧠 Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DagiH22/Climatic.git
+   cd climatic
+    ```
+2. Install Dependencies:
+    ```bash
+    npm install
+    ```
+3. Run development server
+    ```bash
+    npm run dev
+    ```
+## 🔒 Permissions
+Requires user permission to access location for auto-detection.

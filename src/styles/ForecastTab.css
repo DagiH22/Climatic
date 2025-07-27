@@ -15,6 +15,7 @@
 .fiveDaycardContainer{
     align-self: flex-start;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2em;
     /* margin-left: 5rem; */
@@ -45,4 +46,62 @@ h3{
     display: flex;
     margin-top: 1em;
     align-items: center;
+}
+@media (max-width: 991px) {
+    .fiveDaycardContainer{
+        gap: 1em;
+        flex-wrap: wrap;
+    }
+    .fiveDaycard{
+        width: 10em;
+        height: 10em;
+        border: 2px solid #001b5a;
+        border-radius: 25px;
+        padding: 1em;
+    }
+    .locationName{
+        margin-top:.5em;
+        font-size: 2em;
+    }
+    .weatherIcon{
+        height: 3em;
+    }
+    h3{
+        font-size: 1.5em;
+    }
+    .avgTemp{
+        font-size: 1.3em;
+    }
+    .weatherText{
+        font-size: 1em;
+    }  
+}
+@media (max-width: 361px) {
+    .fiveDaycardContainer{
+        gap: 1em;
+        flex-wrap: wrap;
+    }
+    .fiveDaycard{
+        width: 8em;
+        height: 8em;
+        border: 2px solid #001b5a;
+        border-radius: 25px;
+        padding: 1em;
+    }
+    .locationName{
+        margin-top:.5em;
+        font-size: 1.8em;
+    }
+    .weatherIcon{
+        height: 2.8em;
+    }
+    h3{
+        font-size: 1.3em;
+    }
+    .avgTemp{
+        font-size: 1em;
+    }
+    .weatherText{
+        font-size: .8em;
+    }  
 }
