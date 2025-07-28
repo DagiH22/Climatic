@@ -6,12 +6,8 @@
     margin: 0;
     padding: 0;
     padding-bottom: 1em;
-    /* background-color: blueviolet; */
-    /* padding-left: 2rem; */
+
 }
-/* .appContainer > *{
-    width: 90%;
-} */
 .mainContainer{
     width: 100%;
     display: flex;
@@ -21,7 +17,7 @@
 }
 .mainContainer > *{
     width: 90%;
-    /* height: fit-content; */
+
 }
 
 
@@ -60,12 +56,7 @@
         margin-top: 1rem;
       }
       .appContainer{
-        height: fit-content;
-        overflow-y: auto;
-    }
-    .mainContainer{
-        overflow-y: auto;
-        display: flex;
+        min-height: 100vh;
     }
 }
 @media (max-width: 768px) {

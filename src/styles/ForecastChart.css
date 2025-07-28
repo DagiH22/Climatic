@@ -27,7 +27,8 @@
 }
 @media (max-width: 991px) {
     .forecastChartContainer{
-      height:24vh;
+      /* height:24vh; */
+      min-height:fit-content ;
   }
   }
   @media (max-width: 768px) {
@@ -35,7 +36,7 @@
           font-size: 1.2rem;
           width: 90%;
           align-self: center;
-          margin-top: 7em;
+          /* margin-top: 7em; */
           /* margin-left: 1em; */
       }
       .forecastChartContainer{
