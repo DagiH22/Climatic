@@ -20,7 +20,7 @@ function Header({setCity , isLightMode, setisLightMode, isCelciusActive, setIsCe
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
       localStorage.setItem('tempMode', isCelciusActive ? 'celsius': 'fahrenheit') 
-      console.log(localStorage.getItem('tempmode'))
+      // console.log(localStorage.getItem('tempmode'))
     }
   },[isLightMode,isCelciusActive])
     
