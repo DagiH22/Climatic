@@ -16,7 +16,7 @@ import Error from './components/Error.jsx'
 
 function App() {
   const [isLightMode,setisLightMode] = useState(() => {return localStorage.getItem('theme') === 'light' ?? false});
-  const [isCelciusActive,setIsCelciusActive] = useState(()=>{return localStorage.getItem('tempMode') === 'celsius' ?? true})
+  const [isCelciusActive,setIsCelciusActive] = useState(()=>{return localStorage.getItem('tempMode') === null ? true :  localStorage.getItem('tempMode')=== 'celsius'})
   const [city, setCity] = useState('')
   const [dailyData, setDailyData] = useState(null)
   const [fiveDayData, setFiveDayData] = useState()

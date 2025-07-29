@@ -1,6 +1,6 @@
 .todaySummary{
     width: 40%;
-    height: 50.5vh;
+    height: 49vh;
     display: flex;
     border: 2px solid #001b5a;
     border-radius: 25px;
@@ -43,7 +43,7 @@
 }
 @media (max-width :1400px)and (min-width:1000px) and (max-height:1000px) {
   .todaySummary{
-    height: 40vh;
+    height: auto;
   }
   .mainImg img{
     height: 15em;
