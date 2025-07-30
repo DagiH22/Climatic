@@ -1,4 +1,5 @@
 # 🌤️ Climatic
+**Live Demo**: [climatic-dagi.vercel.app](https://climatic-dagi.vercel.app/)
 
 **Climatic** is a clean, responsive weather web app built with a modern frontend stack. It fetches real-time weather data and provides a detailed, user-friendly forecast interface.
 
@@ -50,7 +51,8 @@
 - LocalStorage for persisting user preferences
 
 ## 📸 Preview
-
+![Dark mode screenshot](public/screenshots/climaticD.png)
+![Light mode screenshot](public/screenshots/climaticN.png)
 
 
 ## 🧠 Usage
