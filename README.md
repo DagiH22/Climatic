@@ -52,7 +52,7 @@
 
 ## 📸 Preview
 ![Dark mode screenshot](public/screenshots/climaticD.png)
-![Light mode screenshot](public/screenshots/climaticN.png)
+![Light mode screenshot](public/screenshots/climaticL.png)
 
 
 ## 🧠 Usage
