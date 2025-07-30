@@ -23,7 +23,7 @@
     /* margin-left: -3em; */
 }
 .fiveDaycard{
-    width: 15em;
+    width: 16em;
     height: 18em;
     border: 2px solid #001b5a;
     border-radius: 25px;
@@ -83,7 +83,7 @@ h3{
         flex-wrap: wrap;
     }
     .fiveDaycard{
-        width: 8em;
+        width: 9em;
         height: 8em;
         border: 2px solid #001b5a;
         border-radius: 25px;
