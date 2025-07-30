@@ -41,7 +41,8 @@ function App() {
       } 
       catch(err){
         setError(err)
-        console.log(err.message)
+        // console.log('inside the daily',err.message)
+        // console.log('error variable is ',error)
       }
     }
     const fetchFiveDayData = async () =>{
@@ -51,6 +52,8 @@ function App() {
       } 
       catch(err){
         setError(err)
+        // console.log('the error is ',err.message)
+        // console.log('error variable is ',error)
       }
     }
     fetchDailyData()
@@ -70,7 +73,8 @@ function App() {
       } 
       catch(err){
         setError(err)
-        console.log(err.message)
+        // console.log('daily data error is ',err.message)
+        // console.log('error variable is ',error)
       }
     }
     const fetchFiveDayCoordData = async (parsed) =>{
@@ -79,7 +83,8 @@ function App() {
         setFiveDayData(fiveDayResult)
       } 
       catch(err){
-        setError(err)
+        // setError('five day data error ',err)
+        // console.log('error variable is ',error)
       }
     }
 

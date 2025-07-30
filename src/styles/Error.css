@@ -1,0 +1,11 @@
+.error-container{
+    color: red;
+    padding-top: 30vh;
+    height: 85vh;
+}
+.error-container h2{
+    font-size: 2.5em;
+}
+.error-container p{
+    font-size: 1.2em;
+}   

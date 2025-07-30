@@ -11,7 +11,7 @@ async function dailyApi(city){
         return res.data
     }
     catch(err){
-        console.error(err.message)
-        throw new Error(err.message)}
+        // console.error(err.message)
+        throw err}
 }
 export default dailyApi

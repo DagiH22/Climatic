@@ -11,6 +11,6 @@ async function fiveDayApi(location){
         return res.data
     }
     catch(err){
-        throw new Error(err.message)}
+        throw err}
 }
 export default fiveDayApi
